@@ -1,0 +1,69 @@
+<div class="row d-flex  main">
+    <div class="card">
+      <h2 class="login">Sign Up</h2>
+      <form class="formulario" (ngSubmit)="signUp()" #myForm="ngForm" autocomplete="off">
+        
+        <!-- Username input -->
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form2Example1">Username</label>
+          <input type="text" id="form2Example1" class="form-control" 
+          [ngModel]="userData.username"
+          name="username"
+          minlength="3"
+          required/>
+          <span class="form-text text-danger" 
+                             *ngIf="notValidUsername()">
+                            username must be greater than 3 and be required
+          </span>
+        </div>
+  
+        <!-- Password input -->
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form2Example2">Password</label>
+          <input type="password" id="form2Example2" class="form-control"
+          [ngModel]="userData.password"
+          name="password"
+          minlength="3" 
+          required/>
+          <span class="form-text text-danger" 
+                             *ngIf="notValidPassword()">
+                             password must be greater than 3 and be required                    
+          </span>
+        </div>
+  
+  
+        <!-- Name input -->
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form2Example2">Name</label>
+          <input type="text" id="form2Example2" class="form-control"
+          [ngModel]="userData.name"
+          name="name"
+          minlength="3" 
+          required/>
+          <span class="form-text text-danger" 
+                             *ngIf="notValidName()">
+                             name must be greater than 3 and be required                    
+          </span>
+        </div>
+  
+
+        <!-- Email input -->
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form2Example2">Email</label>
+          <input type="email" id="form2Example2" class="form-control"
+          [ngModel]="userData.email"
+          name="email"
+          required/>
+          <span class="form-text text-danger" 
+                              *ngIf="notValidEmail()">
+                              email must be type email and be required                    
+          </span>
+        </div>
+
+        <!-- Submit button -->
+        <button type="submit" [disabled]="myForm.invalid" class="btn btn-dark btn-block mb-4 boton">Sign up</button>
+
+        
+      </form>
+    </div>
+  </div>

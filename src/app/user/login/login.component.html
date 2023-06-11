@@ -1,0 +1,51 @@
+<div class="row d-flex  main">
+    <div class="card">
+      <h2 class="login">Log In</h2>
+      <form class="formulario" (ngSubmit)="login()" [formGroup]="myForm" autocomplete="off">
+        <!-- Email input -->
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form2Example1">Username</label>
+          <input type="text" id="form2Example1" class="form-control" 
+          
+          name="username"
+          formControlName="username"
+          minlength="3"
+          required/>
+          <span class="form-text text-danger" 
+                             *ngIf=' myForm.get("username")?.invalid &&
+                             myForm.get("username")?.touched '>
+                            username must be greater than 3 and  required
+          </span>
+        </div>
+  
+        <!-- Password input -->
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form2Example2">Password</label>
+          <input type="password" id="form2Example2" class="form-control"
+        
+          name="password"
+          formControlName="password"
+          minlength="3" 
+          required/>
+          <span class="form-text text-danger" 
+                             *ngIf=' myForm.get("username")?.invalid &&
+                             myForm.get("username")?.touched '>
+                             password must be greater than 3 and required                    
+          </span>
+        </div>
+  
+  
+  
+  
+  
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-dark btn-block mb-4 boton">Log in</button>
+  
+        <!-- Register buttons -->
+        <div class="text-center">
+          <p>Don't have a account? <a href="#" [routerLink]="['../register']"> Register here!</a></p>
+        </div>
+        
+      </form>
+    </div>
+  </div>
