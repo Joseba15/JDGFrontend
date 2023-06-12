@@ -18,6 +18,7 @@ export class RegisterComponent {
     name:"",
     email:""
   }
+  
   isLoggedIn!: boolean;
 
   

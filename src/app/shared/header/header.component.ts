@@ -16,4 +16,8 @@ export class HeaderComponent  implements OnInit{
     this.isLoggedIn$=this.service.isLoggedIn;
     this.isAdminIn$= this.service.isAdminIn;
   }
+
+  logout(){
+    this.service.logout();
+  }
 }

@@ -15,8 +15,10 @@ export class UserServiceService {
 
   urlSingUp:string = 'http://localhost:8080/signup'
   urlLogin:string = 'http://localhost:8080/login'
+  
   private loggedIn = new BehaviorSubject<boolean> (false);
   private adminIn = new BehaviorSubject<boolean> (false);
+ 
   httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
@@ -45,10 +47,11 @@ export class UserServiceService {
 
 
   login(username:string, password:string):Observable<boolean>{
-
+    // console.log('Username: ', username, 'Password: ', password);
+    
     return this.http.post<TokenInterface>(this.urlLogin,{"username":username,"password":password}, this.httpOptions)
     .pipe(  switchMap(token=> {
-
+      
       this.cookies.set('token',token.token);
       this.cookies.set('role',this.decodeJwt(token.token).role)
       this.cookies.set('login','true');
@@ -63,12 +66,22 @@ export class UserServiceService {
       this.cookies.delete('token');
       this.loggedIn.next(false);
       this.adminIn.next(false);
+      console.log(error);
+      
       return of (false);
     }))
   }
 
   decodeJwt(jwt: string): DecodeToken {        
     return jwt_decode(jwt)     
+  }
+
+
+  logout(){
+    this.loggedIn.next(false);
+    this.adminIn.next(false);
+    this.cookies.delete('token');
+    this.cookies.delete('role');
   }
 
 }

@@ -30,10 +30,7 @@ export class LoginComponent {
     if (this.myForm.invalid) {
       this.myForm.markAllAsTouched();  
     }
-    this.myForm.reset({
-      place: '',
-      entryDate: '',
-    })
+    
     this.service.login(this.myForm.value.username,this.myForm.value.password)
     .subscribe({
       next: (resp) => {
@@ -43,7 +40,12 @@ export class LoginComponent {
             icon: 'success',
             title: 'Login succesfull',
           })
+          this.myForm.reset({
+          place: '',
+          entryDate: '',
+         })
           this.route.navigate(['']);
+
         }
         else {
           Swal.fire({
@@ -54,7 +56,7 @@ export class LoginComponent {
         }
       }
     })
-
+  
 
   }
 }
