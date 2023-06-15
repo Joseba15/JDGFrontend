@@ -6,10 +6,16 @@
   
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
           <li><a class="nav-link px-2 text-dark"  routerLink="/" routerLinkActive="active" >Home</a></li>
-          <li><a class="nav-link px-2 text-dark" >Shoes</a></li>
+          <li><a class="nav-link px-2 text-dark"  routerLink="/shoe/list" routerLinkActive="active">Shoes</a></li>
           <li><a class="nav-link px-2 text-dark" >Brands</a></li>
         </ul> 
-  
+        <ul class="dropdown-menu" >
+          <li><a class="dropdown-item" href="#" >User</a></li>
+        </ul>
+
+
+
+
         <div class="text-end">
           <button type="button" class="btn btn-dark bi "*ngIf="!(isLoggedIn$|async)"  routerLink="/user/login" routerLinkActive="active">Login</button>
           <button type="button"  class="btn btn-outline-dark" (click)="logout()"  *ngIf="(isLoggedIn$|async)" >

@@ -7,11 +7,12 @@ import { SharedModule } from './shared/shared.module';
 import { UserModule } from './user/user.module';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ListSupplierComponent } from './supplier/list-supplier/list-supplier.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
