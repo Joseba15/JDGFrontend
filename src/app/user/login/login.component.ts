@@ -51,7 +51,7 @@ export class LoginComponent {
           Swal.fire({
             icon: 'error',
             title: 'Oops...',
-            text: 'username and/or password not correct'
+            text: 'User not found with that details'
           })
         }
       }

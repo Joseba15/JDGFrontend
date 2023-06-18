@@ -8,13 +8,21 @@
           <li><a class="nav-link px-2 text-dark"  routerLink="/" routerLinkActive="active" >Home</a></li>
           <li><a class="nav-link px-2 text-dark"  routerLink="/shoe/list" routerLinkActive="active">Shoes</a></li>
           <li><a class="nav-link px-2 text-dark" >Brands</a></li>
+          
         </ul> 
-        <ul class="dropdown-menu" >
-          <li><a class="dropdown-item" href="#" >User</a></li>
-        </ul>
-
-
-
+  
+      <div class="text-end">
+        <div class="input-group">
+          <div class="form-outline">
+            <input id="search-input" [(ngModel)]="searchTerm" type="search" id="form1" placeholder="Search"  class="form-control" />
+          </div>
+          <button id="search-button" (click)="handleSearch()" type="button" class="btn btn-dark">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+              <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
 
         <div class="text-end">
           <button type="button" class="btn btn-dark bi "*ngIf="!(isLoggedIn$|async)"  routerLink="/user/login" routerLinkActive="active">Login</button>

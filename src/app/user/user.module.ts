@@ -6,6 +6,8 @@ import { UserRoutingModule } from './user.routing.module';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ListUserComponent } from './list-user/list-user.component';
+import { DataTablesModule } from 'angular-datatables';
 
 
 
@@ -13,18 +15,22 @@ import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    ListUserComponent
   ],
   imports: [
     CommonModule,
     UserRoutingModule,
     RouterModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DataTablesModule
   ],
   exports:[
     RegisterComponent,
     LoginComponent,
+    ListUserComponent
+
   ]
 })
 export class UserModule { }

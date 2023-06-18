@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Observable } from 'rxjs';
 import { UserServiceService } from '../../services/user-service.service';
 
@@ -10,6 +10,13 @@ export class HeaderComponent  implements OnInit{
 
   isLoggedIn$!: Observable<boolean>;
   isAdminIn$!: Observable<boolean>;
+
+
+  @Output() search = new EventEmitter<string>();
+  
+  
+  searchTerm!: string;
+  
   constructor(private service:UserServiceService) { }
 
   ngOnInit(): void {
@@ -19,5 +26,10 @@ export class HeaderComponent  implements OnInit{
 
   logout(){
     this.service.logout();
+  }
+
+
+  handleSearch() {
+    this.search.emit(this.searchTerm);
   }
 }

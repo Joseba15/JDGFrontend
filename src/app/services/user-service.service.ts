@@ -5,6 +5,8 @@ import { CookieService } from 'ngx-cookie-service';
 import { DecodeToken } from '../interfaces/decodetoken.interface';
 import jwt_decode from 'jwt-decode';
 import { TokenInterface } from '../interfaces/token.interface';
+import { User } from '../interfaces/user.interface';
+import { Pageable } from '../interfaces/pageable.interface';
 
 
 @Injectable({
@@ -12,7 +14,7 @@ import { TokenInterface } from '../interfaces/token.interface';
 })
 export class UserServiceService {
 
-
+  url:string = 'http://localhost:8080/user'
   urlSingUp:string = 'http://localhost:8080/signup'
   urlLogin:string = 'http://localhost:8080/login'
   
@@ -33,6 +35,17 @@ export class UserServiceService {
 
   constructor(private http : HttpClient, private cookies: CookieService) { }
 
+
+
+  getUser(query:string):Observable<User> {
+    return this.http.get<User>(`${this.url}${query}`) 
+  }
+
+  getUsers():Observable<Pageable> {
+    return this.http.get<Pageable>(`${this.url}`) 
+
+    
+  }
 
   register(username: string, password:string, name:string, email:string):Observable<boolean>{
  

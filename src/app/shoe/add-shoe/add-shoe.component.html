@@ -1,1 +1,62 @@
-<p>add-shoe works!</p>
+<div class="row d-flex  main">
+    <div class="card">
+      <h2 class="login">Add a Shoe</h2>
+      <form class="formulario" (ngSubmit)="add()" [formGroup]="myForm" autocomplete="off">
+        <!-- Mopdel input -->
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form2Example1">Model</label>
+          <input type="text" id="form2Example1" class="form-control" 
+          
+          name="model"
+          formControlName="model"
+          minlength="4"
+          required/>
+          <span class="form-text text-danger" 
+                             *ngIf=' myForm.get("model")?.invalid &&
+                             myForm.get("model")?.touched '>
+                             model must be greater than 4 and  required
+          </span>
+        </div>
+  
+        <!-- Type input -->
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form2Example2">Type</label>
+          <input type="text" id="form2Example2" class="form-control"
+        
+          name="type"
+          formControlName="type"
+          minlength="2" 
+          required/>
+          <span class="form-text text-danger" 
+                             *ngIf=' myForm.get("type")?.invalid &&
+                             myForm.get("type")?.touched '>
+                             type must be greater than 2 and required                    
+          </span>
+        </div>
+
+  
+        <!-- price input -->
+        <div class="form-outline mb-4">
+            <label class="form-label" for="form2Example2">Price</label>
+            <input type="number" id="form2Example2" class="form-control"
+        
+            name="price"
+            formControlName="price"
+            min="40" 
+            required/>
+            <span class="form-text text-danger" 
+                            *ngIf=' myForm.get("price")?.invalid &&
+                            myForm.get("price")?.touched '>
+                            price must be greater than 40€                  
+            </span>
+        </div>
+  
+  
+  
+        <!-- Submit button -->
+        <button type="submit" [disabled]="myForm.invalid"  class="btn btn-dark btn-block mb-4 boton">Log in</button>
+
+        
+      </form>
+    </div>
+  </div>

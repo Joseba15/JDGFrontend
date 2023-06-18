@@ -6,4 +6,9 @@ import { Component } from '@angular/core';
 })
 export class DetailShoeComponent {
 
+   searchTerm!: string;
+
+  handleSearch(term: string) {
+    this.searchTerm = term;
+  }
 }

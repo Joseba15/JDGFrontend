@@ -7,6 +7,7 @@ import { UpdateShoeComponent } from './update-shoe/update-shoe.component';
 import { DetailShoeComponent } from './detail-shoe/detail-shoe.component';
 import { ShoeRoutingModule } from './shoe.routing.module';
 import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -21,10 +22,11 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     ShoeRoutingModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule,
+
   ],
   exports: [
-    ListShoeComponent
   ]
 })
 export class ShoeModule { }
