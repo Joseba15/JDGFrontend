@@ -8,6 +8,7 @@ import { UserServiceService } from '../../services/user-service.service';
 })
 export class ListUserComponent implements OnInit,OnDestroy{
 
+
   dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject<any>();
 
@@ -28,10 +29,9 @@ export class ListUserComponent implements OnInit,OnDestroy{
     .subscribe({
       next: (resp) => {
         
-        this.listaUsers = resp.content
+        this.listaUsers = resp.content;
         this.error = false;
-                this.dtTrigger.next(this.listaUsers);
-
+        this.dtTrigger.next(this.listaUsers);
       }
     })
     

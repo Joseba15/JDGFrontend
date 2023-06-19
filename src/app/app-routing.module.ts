@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
+import { SupplierModule } from './supplier/supplier.module';
 
 const routes: Routes = [{
   path: '',
@@ -16,6 +17,10 @@ const routes: Routes = [{
 {
   path: 'shoe',
   loadChildren: () => import('./shoe/shoe.module').then( m => m.ShoeModule)
+},
+{
+  path: 'supplier',
+  loadChildren: () => import('./supplier/supplier.module').then( m => m.SupplierModule)
 },
 {
   path: '**',

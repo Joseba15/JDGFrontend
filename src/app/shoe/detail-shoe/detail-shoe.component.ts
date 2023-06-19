@@ -6,9 +6,10 @@ import { Component } from '@angular/core';
 })
 export class DetailShoeComponent {
 
-   searchTerm!: string;
+  nombreBuscado: string = '';
 
-  handleSearch(term: string) {
-    this.searchTerm = term;
+  onBuscarNombre(nombre: string): void {
+    this.nombreBuscado = nombre;
   }
+  
 }

@@ -19,7 +19,8 @@ export class ListShoeComponent {
   ngOnInit(): void {
     this.getShoes();
     this.isAdminIn$= this.userService.isAdminIn;
-
+    
+    
     
   }
 

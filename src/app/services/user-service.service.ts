@@ -42,7 +42,7 @@ export class UserServiceService {
   }
 
   getUsers():Observable<Pageable> {
-    return this.http.get<Pageable>(`${this.url}`) 
+    return this.http.get<Pageable>(`${this.url}/page`) 
 
     
   }

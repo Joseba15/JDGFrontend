@@ -12,10 +12,9 @@ export class HeaderComponent  implements OnInit{
   isAdminIn$!: Observable<boolean>;
 
 
-  @Output() search = new EventEmitter<string>();
-  
-  
-  searchTerm!: string;
+  @Output() buscarNombre: EventEmitter<string> = new EventEmitter<string>();
+
+  nombreBusqueda: string = '';
   
   constructor(private service:UserServiceService) { }
 
@@ -29,7 +28,7 @@ export class HeaderComponent  implements OnInit{
   }
 
 
-  handleSearch() {
-    this.search.emit(this.searchTerm);
+  onBuscar(): void {
+    this.buscarNombre.emit(this.nombreBusqueda);
   }
 }

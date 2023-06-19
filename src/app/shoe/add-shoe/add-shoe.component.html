@@ -50,11 +50,26 @@
                             price must be greater than 40€                  
             </span>
         </div>
-  
-  
+
+
+        <!-- price input -->
+        <div class="elemento-form-select">
+          Select a supplier:
+          <select formControlName="supplier">
+              <option *ngFor="let supplier of listaSupplier" [value]="supplier.idSup">
+                  {{supplier.name}}
+              </option>
+          </select>
+          <p class="form-text text-danger" *ngIf="isValidField('supplier')">
+            Must select a supplier
+          </p>
+      </div>
+        <!-- Back button -->
+        <button class="btn btn-dark btn-block mb-4 " type="button" [routerLink]="['/shoe/list']">Cancel</button>
+
   
         <!-- Submit button -->
-        <button type="submit" [disabled]="myForm.invalid"  class="btn btn-dark btn-block mb-4 boton">Log in</button>
+        <button type="submit" [disabled]="myForm.invalid"  class="btn btn-dark btn-block mb-4 boton">Add </button>
 
         
       </form>

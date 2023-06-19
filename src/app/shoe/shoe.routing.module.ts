@@ -14,7 +14,7 @@ const routes: Routes = [
         { path: 'list', component: ListShoeComponent },
         { path: 'add', component: AddShoeComponent},
         { path: 'update', component: UpdateShoeComponent},
-        { path: 'delete', component: DelShoeComponent},
+        { path: 'delete/:id', component: DelShoeComponent},
         { path: 'detail', component: DetailShoeComponent},
       ] 
     }

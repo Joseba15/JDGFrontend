@@ -8,6 +8,8 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ListUserComponent } from './list-user/list-user.component';
 import { DataTablesModule } from 'angular-datatables';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptorService } from '../auth-interceptor.service';
 
 
 
@@ -31,6 +33,12 @@ import { DataTablesModule } from 'angular-datatables';
     LoginComponent,
     ListUserComponent
 
+  ],providers:[
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true
+    }
   ]
 })
 export class UserModule { }

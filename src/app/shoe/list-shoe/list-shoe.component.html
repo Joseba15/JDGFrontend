@@ -14,7 +14,7 @@
           <button type="button" class="btn btn-dark " routerLink="/shoe/detail" > Show Detail </button>
           <br>
           <button type="button" class="btn btn-warning "*ngIf="(isAdminIn$!|async)" routerLink="/shoe/update" > Update Shoe </button>
-          <button type="button" class="btn btn-danger "*ngIf="(isAdminIn$!|async)" routerLink="/shoe/delete" > Delete Shoe </button>
+          <button type="button" class="btn btn-danger "*ngIf="(isAdminIn$!|async)" routerLink="/shoe/delete/{{shoe.idShoe}}" > Delete Shoe </button>
         </div>
       </div>
     </div>     
